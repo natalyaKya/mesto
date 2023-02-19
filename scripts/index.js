@@ -11,6 +11,8 @@ let profileJob = document.querySelector('.profile__text');
 clickEditButton.addEventListener('click', function(){
     form.classList.add('form_opened');
 
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
 })
 
 let closeForm = document.querySelector('.form__close-icon');
