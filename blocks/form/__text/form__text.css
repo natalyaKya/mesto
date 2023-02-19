@@ -1,0 +1,16 @@
+.form__text {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    height: 30px;
+    width: 238px;
+}
+
+@media (min-width: 910px) {
+    .form__text {
+        width: 358px;
+    }
+}

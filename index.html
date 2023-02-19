@@ -1,12 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
     <title>Проект: Место</title>
 </head>
-<body>
-    
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="Логотип проекта Место">
+        
+    </header>
+
+    <section class="form">
+        <div class="form__conteiner">
+            <img class="form__close-icon" src="./images/CloseIcon.svg" alt="Кнопка закрытия">
+            <form class="form__admin">
+                <h2 class="form__heading">Редактировать профиль</h2>
+                <input class="form__text form__name" type="text">
+                <input class="form__text form__job" type="text">
+                <input class="form__button" type="submit" value="Сохранить">
+            </form>
+        </div>      
+    </section>
+
+    <main class="content">
+
+        <section class="profile">
+            <img class="profile__avatar" src="./images/image.jpg" alt="Аватар">
+            <div class="profile__info">
+                <h1 class="profile__heading">Жак-Ив Кусто</h1>
+                <button class="profile__edit-button"></button>
+                <p class="profile__text">Исследователь океана</p>
+            </div>
+            <button class="profile__add-button"> <img src="./images/AddButton.png" alt=""> </button>
+        </section>
+
+        <section class="elements">
+            <article class="elements__card">
+                <img class="elements__image" src="./images/karachaevsk.jpg" alt="Архитектура Карачевска">
+                <p class="elements__text">Карачаево-Черкессия</p>
+                <img class="elements__icon" src="./images/heart.svg" alt="Иконка сердца">
+            </article>
+            <article class="elements__card">
+                <img class="elements__image" src="./images/elbrus.jpg" alt="Фото горы Эльбрус">
+                <p class="elements__text">Гора Эльбрус</p>
+                <img class="elements__icon" src="./images/heart.svg" alt="Иконка сердца">
+            </article>
+            <article class="elements__card">
+                <img class="elements__image" src="./images/dombai.jpg" alt="Ландшафт Домбая">
+                <p class="elements__text">Домбай</p>
+                <img class="elements__icon" src="./images/heart.svg" alt="Иконка сердца">
+            </article>
+            <article class="elements__card">
+                <img class="elements__image" src="./images/karachaevsk.jpg" alt="Архитектура Карачевска">
+                <p class="elements__text">Карачаевск</p>
+                <img class="elements__icon" src="./images/heart.svg" alt="Иконка сердца">
+            </article>
+            <article class="elements__card">
+                <img class="elements__image" src="./images/elbrus.jpg" alt="Фото горы Эльбрус">
+                <p class="elements__text">Гора Эльбрус</p>
+                <img class="elements__icon" src="./images/heart.svg" alt="Иконка сердца">
+            </article>
+            <article class="elements__card">
+                <img class="elements__image" src="./images/dombai.jpg" alt="Ландшафт Домбая">
+                <p class="elements__text">Домбай</p>
+                <img class="elements__icon" src="./images/heart.svg" alt="Иконка сердца">
+            </article>
+            
+            
+        </section>
+
+        <section class="footer">
+            <p class="footer__text">&#169; 2020 Mesto Russia</p>
+        </section>
+
+
+    </main>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
