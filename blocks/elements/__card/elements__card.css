@@ -1,7 +1,7 @@
 .elements__card {
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-rows: auto 1fr ;
+    grid-template-rows: auto 1fr;
     background: #FFFFFF;
     max-width: 282px;
     min-height: 361px;
