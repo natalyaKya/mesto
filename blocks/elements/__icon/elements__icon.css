@@ -2,6 +2,11 @@
     align-self: center;
     justify-self: right;
     margin-right: 20px;
+    background-image: url(../../../images/heart.svg);
+    width: 22px;
+    height: 19px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
 }
 
 @media (min-width: 910px) {
@@ -12,9 +17,5 @@
     .elements__icon:hover {
         opacity: 0.5;
         transition: 0.5s;
-    }
-
-    .elements__icon_active {
-        background-image: url(../images/heartBlack.svg);
     }
 }

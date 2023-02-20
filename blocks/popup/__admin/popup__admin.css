@@ -1,4 +1,4 @@
-.form__admin {
+.popup__admin {
     max-width: 282px;
     text-align: center;
     color: #000000;
@@ -8,7 +8,7 @@
 }
 
 @media (min-width: 910px) {
-    .form__admin {
+    .popup__admin {
         max-width: 430px;
     }
 }

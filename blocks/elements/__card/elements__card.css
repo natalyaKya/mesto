@@ -4,7 +4,6 @@
     grid-template-rows: auto 1fr;
     background: #FFFFFF;
     max-width: 282px;
-    min-height: 361px;
     border-radius: 10px;
     object-fit: cover;
     object-position: center;

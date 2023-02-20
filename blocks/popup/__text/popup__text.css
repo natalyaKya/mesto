@@ -1,0 +1,24 @@
+.popup__text {
+    border: none;
+    color: #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    width: 238px;
+}
+
+.popup__text:nth-child(3) {
+    margin-bottom: 47px;
+}
+
+.popup__text:active {
+    outline: 1px solid #000000;
+}
+
+@media (min-width: 910px) {
+    .popup__text {
+        width: 358px;
+    }
+}

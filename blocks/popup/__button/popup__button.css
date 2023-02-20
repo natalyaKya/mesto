@@ -1,4 +1,4 @@
-.form__button {
+.popup__button {
     width: 238px;
     height: 46px;
     background: #000000;
@@ -10,15 +10,16 @@
     color: #FFFFFF;
     margin-bottom: 25px;
     cursor: pointer;
+    outline: none;
 }
 
-.form__button:hover {
+.popup__button:hover {
     opacity: 0.8;
     transition: 0.5s;
 }
 
 @media (min-width: 910px) {
- .form__button {
+ .popup__button {
         width: 358px;
     }  
 }
