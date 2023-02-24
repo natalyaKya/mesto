@@ -7,13 +7,10 @@
     height: 19px;
     background-color: rgba(0, 0, 0, 0);
     border: 0;
+    cursor: pointer;
 }
 
 @media (min-width: 910px) {
-    .elements__icon {
-        cursor: pointer;
-    }
-
     .elements__icon:hover {
         opacity: 0.5;
         transition: 0.5s;

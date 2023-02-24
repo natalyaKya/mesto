@@ -10,7 +10,7 @@
     color: #FFFFFF;
     margin-bottom: 25px;
     cursor: pointer;
-    outline: none;
+    border: none;
 }
 
 .popup__button:hover {
@@ -20,6 +20,8 @@
 
 @media (min-width: 910px) {
  .popup__button {
-        width: 358px;
+    width: 358px;
+    font-size: 18px;
+    line-height: 22px;
     }  
 }

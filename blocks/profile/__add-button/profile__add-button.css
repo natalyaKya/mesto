@@ -12,11 +12,11 @@
 
 @media (min-width: 910px) {
     .profile__add-button {
-    width: 150px;
-    justify-self: flex-end;
-    margin: 0 0 36px 0;
-    cursor: pointer;
-    background-size: 15%;
+        width: 150px;
+        justify-self: flex-end;
+        margin: 0 0 36px 0;
+        cursor: pointer;
+        background-size: 15%;
     }
 
     .profile__add-button:hover {

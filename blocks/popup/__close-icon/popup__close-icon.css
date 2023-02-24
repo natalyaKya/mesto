@@ -9,11 +9,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border: none;
 }
 
 @media (min-width: 910px) {
     .popup__close-icon {
-        margin-right: -30px;
+        margin-right: -45px;
         width: 32px;
         height: 32px;
     }
