@@ -26,37 +26,9 @@
         </section>
 
         <section class="elements">
-            <div class="elements__card">
-                <img class="elements__image" src="./images/karachaevsk.jpg" alt="Архитектура Карачевска">
-                <h2 class="elements__text">Карачаево-Черкессия</h2>
-                <button class="elements__icon" type="button"></button>
-            </div>
-            <div class="elements__card">
-                <img class="elements__image" src="./images/elbrus.jpg" alt="Фото горы Эльбрус">
-                <h2 class="elements__text">Гора Эльбрус</h2>
-                <button class="elements__icon" type="button"></button>
-            </div>
-            <div class="elements__card">
-                <img class="elements__image" src="./images/dombai.jpg" alt="Ландшафт Домбая">
-                <h2 class="elements__text">Домбай</h2>
-                <button class="elements__icon" type="button"></button>
-            </div>
-            <div class="elements__card">
-                <img class="elements__image" src="./images/karachaevsk.jpg" alt="Архитектура Карачевска">
-                <h2 class="elements__text">Карачаевск</h2>
-                <button class="elements__icon" type="button"></button>
-            </div>
-            <div class="elements__card">
-                <img class="elements__image" src="./images/elbrus.jpg" alt="Фото горы Эльбрус">
-                <h2 class="elements__text">Гора Эльбрус</h2>
-                <button class="elements__icon" type="button"></button>
-            </div>
-            <div class="elements__card">
-                <img class="elements__image" src="./images/dombai.jpg" alt="Ландшафт Домбая">
-                <h2 class="elements__text">Домбай</h2>
-                <button class="elements__icon" type="button"></button>
-            </div>
+
         </section>
+
     </main>
 
         <footer class="footer">
@@ -75,8 +47,39 @@
         </div>      
     </div>
 
+    <div class="popup-add">
+        <div class="popup-add__container">
+            <button class="popup-add__close-icon" type="button"></button>
+            <form class="popup-add__admin" name="popup-add">
+                <h2 class="popup-add__heading">Новое место</h2>
+                <input class="popup-add__text popup-add__text_type_place" type="text" name="place" required placeholder="Название">
+                <input class="popup-add__text popup-add__text_type_link" type="text" name="link" required placeholder="Ссылка на картинку">
+                <button class="popup-add__button" type="submit">Создать</button>
+            </form>
+        </div>      
+    </div>
 
-   
+    <div class="popup-full-image">
+        <div class="popup-full-image__overlay">
+            <button class="popup-full-image__close-icon" type="button"></button>
+            <form class="popup-full-image__admin">
+                <figure class="popup-full-image__conteiner">
+                    <img class="popup-full-image__image">
+                    <figcaption class="popup-full-image__caption"></figcaption>
+                </figure>
+            </form>
+        </div>
+    </div>
+
+    <template id="elements__card">
+        <div class="elements__card">
+            <img class="elements__image">
+            <h2 class="elements__text"></h2>
+            <button class="elements__delete"></button>
+            <button class="elements__icon" type="button"></button>
+        </div>
+    </template>
+
     <script src="./scripts/index.js"></script>
 </body>
 </html>
