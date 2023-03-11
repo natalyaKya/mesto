@@ -1,4 +1,4 @@
-.elements__icon {
+.elements__button {
     align-self: center;
     justify-self: right;
     margin-right: 20px;
@@ -11,7 +11,7 @@
 }
 
 @media (min-width: 910px) {
-    .elements__icon:hover {
+    .elements__button:hover {
         opacity: 0.5;
         transition: 0.5s;
     }
