@@ -1,8 +1,8 @@
 //Popup elements
 const popup = document.querySelector('.popup');
-const popupEditProfile = document.querySelector('.popup__edit-profile');
-const popupAddCard = document.querySelector('.popup__add-card');
-const popupFullImage = document.querySelector('.popup__full-size');
+const popupEditProfile = document.querySelector('.popup_edit-profile');
+const popupAddCard = document.querySelector('.popup_add-card');
+const popupFullImage = document.querySelector('.popup_full-size');
 
 const popupForm = document.querySelector('.popup__form');
 const popupFormAddCard = document.querySelector('.popup__form-add-card');
