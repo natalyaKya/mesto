@@ -1,10 +1,9 @@
 //Popup elements
-const popup = document.querySelector('.popup');
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCard = document.querySelector('.popup_add-card');
 const popupFullImage = document.querySelector('.popup_full-size');
 
-const popupForm = document.querySelector('.popup__form');
+const popupFormEditProfile = document.querySelector('.popup__edit-profile');
 const popupFormAddCard = document.querySelector('.popup__form-add-card');
 
 //Cards section
@@ -14,7 +13,7 @@ const cardsConteiner = document.querySelector('.elements');
 //Buttons
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const buttonAddCard = document.querySelector('.profile__add-button');
-const buttonsClosePopup = document.querySelectorAll('.popup__close-button');
+const buttonsClosePopupList = document.querySelectorAll('.popup__close-button');
 
 //Popup inputs
 const nameInput = document.querySelector('.popup__text_type_name');
@@ -27,6 +26,10 @@ const jobProfile = document.querySelector('.profile__text');
 //Add card inputs
 const placeInput = document.querySelector('.popup__text_type_place');
 const linkInput = document.querySelector('.popup__text_type_link');
+
+//Full size elements
+const imageFullSize = document.querySelector('.popup__image');
+const captionPopupFull = document.querySelector('.popup__caption');
 
 //Open popup
 function openPopup (item){
@@ -55,7 +58,7 @@ function closePopup (item) {
     item.classList.remove('popup_opened');
 };
 
-buttonsClosePopup.forEach(item => {
+buttonsClosePopupList.forEach(item => {
     item.addEventListener('click', function(){
         const el = item.closest('.popup');
         closePopup(el);
@@ -72,7 +75,7 @@ function handleFormSubmit (event) {
     closePopup(popupEditProfile);
 }
 
-popupForm.addEventListener('submit', handleFormSubmit);
+popupFormEditProfile.addEventListener('submit', handleFormSubmit);
 
 //Cards
 function createCard(card){
@@ -82,16 +85,16 @@ function createCard(card){
 
     captionCardTemplate.textContent = card.name;
     imageCard.src = card.link;
+    imageCard.alt = card.name;
     
     //Open in full size
-    const imageFullSize = document.querySelector('.popup__image');
-    const captionPopupFull = document.querySelector('.popup__caption');
+    
 
     imageCard.addEventListener('click', () => {
         
-        imageFullSize.src = imageCard.src;
-        imageFullSize.alt = imageCard.alt;
-        captionPopupFull.textContent = captionCardTemplate.textContent;
+        imageFullSize.src = card.link;
+        imageFullSize.alt = card.name;
+        captionPopupFull.textContent = card.name;
 
         openPopup(popupFullImage);   
     });
