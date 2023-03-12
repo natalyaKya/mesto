@@ -7,7 +7,7 @@ const popupFormEditProfile = document.querySelector('.popup__edit-profile');
 const popupFormAddCard = document.querySelector('.popup__form-add-card');
 
 //Cards section
-const cardTemplate = document.querySelector('#elements__card');
+const cardTemplate = document.querySelector('#elements__card').content.querySelector('.elements__card');
 const cardsConteiner = document.querySelector('.elements');
 
 //Buttons
@@ -59,8 +59,8 @@ function closePopup (item) {
 };
 
 buttonsClosePopupList.forEach(item => {
+    const el = item.closest('.popup');
     item.addEventListener('click', function(){
-        const el = item.closest('.popup');
         closePopup(el);
     });
 });
@@ -79,17 +79,15 @@ popupFormEditProfile.addEventListener('submit', handleFormSubmit);
 
 //Cards
 function createCard(card){
-    const cardTemplate = document.querySelector('#elements__card').content.cloneNode(true);
-    const captionCardTemplate = cardTemplate.querySelector('.elements__text');
-    const imageCard = cardTemplate.querySelector('.elements__image');
+    const cardElement = cardTemplate.cloneNode(true);
+    const captionCardTemplate = cardElement.querySelector('.elements__text');
+    const imageCard = cardElement.querySelector('.elements__image');
 
     captionCardTemplate.textContent = card.name;
     imageCard.src = card.link;
     imageCard.alt = card.name;
     
     //Open in full size
-    
-
     imageCard.addEventListener('click', () => {
         
         imageFullSize.src = card.link;
@@ -100,14 +98,14 @@ function createCard(card){
     });
 
     //Delete card
-    const buttonDeleteCard = cardTemplate.querySelector('.elements__delete');
+    const buttonDeleteCard = cardElement.querySelector('.elements__delete');
     buttonDeleteCard.addEventListener('click', handleDeleteCard);
     
     //Like card
-    const buttonLikeCard = cardTemplate.querySelector('.elements__button');
+    const buttonLikeCard = cardElement.querySelector('.elements__button');
     buttonLikeCard.addEventListener('click', hadleLikeCard);
 
-    return cardTemplate;
+    return cardElement;
 };
 
 initialCards.forEach((card) => {
