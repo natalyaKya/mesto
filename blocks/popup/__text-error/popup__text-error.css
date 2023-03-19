@@ -1,0 +1,16 @@
+.popup__text-error {
+    display: inline-block;
+    width: 238px;
+    max-height: 17px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    margin: 0;
+}
+
+@media (min-width: 910px) {
+    .popup__text-error {
+        width: 358px;
+    }
+}
