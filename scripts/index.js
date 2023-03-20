@@ -1,5 +1,5 @@
 //Popup elements
-const popup = document.querySelectorAll('.popup');
+const popupList = document.querySelectorAll('.popup');
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCard = document.querySelector('.popup_add-card');
 const popupFullImage = document.querySelector('.popup_full-size');
@@ -15,6 +15,8 @@ const cardsConteiner = document.querySelector('.elements');
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const buttonAddCard = document.querySelector('.profile__add-button');
 const buttonsClosePopupList = document.querySelectorAll('.popup__close-button');
+const buttonEdit = document.querySelector('.popup__button-edit');
+const buttonCard = document.querySelector('.popup__button-card');
 
 //Popup inputs
 const nameInput = document.querySelector('.popup__text_type_name');
@@ -35,20 +37,24 @@ const captionPopupFull = document.querySelector('.popup__caption');
 //Open popup
 function openPopup (item){
     item.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupEsc);
 };
 
 function openPopupEditProfile (){
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
-    
+    disableButton(buttonEdit, config)
     openPopup(popupEditProfile);
 };
+
+
 
 buttonEditProfile.addEventListener('click', openPopupEditProfile);
 
 function openPopupAddCard () {
     placeInput.value = '';
     linkInput.value = '';
+    disableButton(buttonCard, config)
     openPopup(popupAddCard);
 };
 
@@ -57,8 +63,7 @@ buttonAddCard.addEventListener('click', openPopupAddCard);
 //Close popup
 function closePopup (item) {
     item.classList.remove('popup_opened');
-    formInput.reset();
-
+    document.removeEventListener('keydown', closePopupEsc);
 };
 
 buttonsClosePopupList.forEach(item => {
@@ -77,7 +82,7 @@ function closePopupEsc (e){
       }
 };
 
-document.addEventListener('keydown', closePopupEsc); 
+// document.addEventListener('keydown', closePopupEsc); 
 
 //Close popup by click overlay
 
@@ -88,12 +93,12 @@ function closePopupOverlay (e){
       }
 };
 
-popup.forEach((item) => {
+popupList.forEach((item) => {
     item.addEventListener('click', closePopupOverlay); 
 });
 
 //Send edit profile popup
-function handleFormSubmit (event) {
+function handleProfileFormSubmit (event) {
     event.preventDefault();
 
     nameProfile.textContent = nameInput.value;
@@ -102,7 +107,7 @@ function handleFormSubmit (event) {
     closePopup(popupEditProfile);
 }
 
-popupFormEditProfile.addEventListener('submit', handleFormSubmit);
+popupFormEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
 //Cards
 function createCard(card){
