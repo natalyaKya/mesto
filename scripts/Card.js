@@ -1,3 +1,5 @@
+import { imageFullSize, captionPopupFull, openPopup, popupFullImage } from "./index.js";
+
 export class Card {
     constructor (name, link) {
         this.name = name;
@@ -55,4 +57,5 @@ export class Card {
 
         openPopup(popupFullImage); 
     }
+   
 }

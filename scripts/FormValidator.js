@@ -8,7 +8,6 @@ export default class FormValidator {
 
     enableValidation() {
         this._setEventListeners();
-    
     }
 
     _showInputError (formInput) {
@@ -67,5 +66,4 @@ export default class FormValidator {
             this._hideInputError(item);
         })
       };
-
 }
