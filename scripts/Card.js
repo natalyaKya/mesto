@@ -1,14 +1,15 @@
 import { imageFullSize, captionPopupFull, openPopup, popupFullImage } from "./index.js";
 
 export class Card {
-    constructor (name, link) {
+    constructor (name, link, cardTemplate) {
         this.name = name;
         this.link = link;
+        this.cardTemplate = cardTemplate;
     }
 
     _getTemplate() {
         const cardElement  = document
-        .querySelector('#elements__card')
+        .querySelector(this.cardTemplate)
         .content
         .querySelector('.elements__card')
         .cloneNode(true);

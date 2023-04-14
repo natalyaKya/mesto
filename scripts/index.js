@@ -3,7 +3,6 @@ import { Card } from './Card.js';
 import { config } from './utils.js';
 import FormValidator from './FormValidator.js';
 
-
 //Popup elements
 const popupList = document.querySelectorAll('.popup');
 const popupForms = document.querySelectorAll('.popup__form');
@@ -18,15 +17,15 @@ const popupValidationEditProfile = new FormValidator (config, popupFormEditProfi
 const popupValidationAddCard =  new FormValidator (config, popupFormAddCard);
 
 //Cards section
-const cardTemplate = document.querySelector('#elements__card').content.querySelector('.elements__card');
-const cardsConteiner = document.querySelector('.elements');
+// const cardTemplate = document.querySelector('#elements__card').content.querySelector('.elements__card');
+// const cardsConteiner = document.querySelector('.elements');
 
 //Buttons
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const buttonAddCard = document.querySelector('.profile__add-button');
 const buttonsClosePopupList = document.querySelectorAll('.popup__close-button');
-const buttonEdit = document.querySelector('.popup__button-edit');
-const buttonCard = document.querySelector('.popup__button-card');
+// const buttonEdit = document.querySelector('.popup__button-edit');
+// const buttonCard = document.querySelector('.popup__button-card');
 
 //Popup inputs
 const nameInput = document.querySelector('.popup__text_type_name');
@@ -115,9 +114,9 @@ popupFormEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
 //Add inital cards
 initialCards.forEach((item) => {
-    const card = new Card (item.name, item.link);
+    const card = new Card (item.name, item.link, '#elements__card');
     const cardElement = card.generateCard();
-  
+
     document.querySelector('.elements').append(cardElement);
   }); 
 
