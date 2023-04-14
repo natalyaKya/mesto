@@ -1,10 +1,9 @@
-import { imageFullSize, captionPopupFull, openPopup, popupFullImage } from "./index.js";
-
 export class Card {
-    constructor (name, link, cardTemplate) {
+    constructor (name, link, cardTemplate, handleCardClick) {
         this.name = name;
         this.link = link;
         this.cardTemplate = cardTemplate;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -20,9 +19,13 @@ export class Card {
     generateCard() {
         this._element = this._getTemplate();
 
-        this._element.querySelector('.elements__image').src = this.link;
+        this._cardImage = this._element.querySelector('.elements__image');
+        this._cardImage.src = this.link;
+        this._cardImage.alt = this.name;
+
+        this._submitButton = this._element.querySelector('.elements__button');
         this._element.querySelector('.elements__text').textContent = this.name;
-        this._element.querySelector('.elements__image').alt = this.name;
+        
 
         this._setEventListeners();
 
@@ -30,7 +33,7 @@ export class Card {
     }
     
     _setEventListeners() {
-        this._element.querySelector('.elements__button').addEventListener('click', () => {
+        this._submitButton.addEventListener('click', () => {
             this._hadleLikeCard();
         });
         
@@ -38,25 +41,16 @@ export class Card {
             this._handleDeleteCard();
         });
 
-        this._element.querySelector('.elements__image').addEventListener('click', () => {
-            this._openFullSize();
-        });
+        this._cardImage.addEventListener('click', () => {
+            this._handleCardClick(this._name, this._link)
+          });
       }
 
     _hadleLikeCard() {
-        this._element.querySelector('.elements__button').classList.toggle('elements__button_active');
+        this._submitButton.classList.toggle('elements__button_active');
     }
 
     _handleDeleteCard() {
         this._element.remove();
-    }
-
-    _openFullSize() {
-        imageFullSize.src = this.link;
-        imageFullSize.alt = this.name;
-        captionPopupFull.textContent = this.name;
-
-        openPopup(popupFullImage); 
-    }
-   
+    }   
 }
