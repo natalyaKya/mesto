@@ -1,13 +1,13 @@
 import './index.css';
-import { initialCards, popupFormEditProfile, popupFormAddCard, buttonEditProfile, buttonAddCard, nameInput, jobInput } from '../blocks/scripts/utils.js';
-import Card from '../blocks/scripts/components/Card.js';
-import { config } from '../blocks/scripts/utils.js';
-import FormValidator from '../blocks/scripts/components/FormValidator.js';
-import Popup from '../blocks/scripts/components/Popup.js';
-import Section from '../blocks/scripts/components/Section.js';
-import PopupWithForm from '../blocks/scripts/components/PopupWithForm.js';
-import PopupWithImage from '../blocks/scripts/components/PopupWithImage.js';
-import UserInfo from '../blocks/scripts/components/UserInfo.js';
+import { initialCards, popupFormEditProfile, popupFormAddCard, buttonEditProfile, buttonAddCard, nameInput, jobInput } from '../scripts/utils.js';
+import Card from '../components/Card.js';
+import { config } from '../scripts/utils.js';
+import FormValidator from '../components/FormValidator.js';
+import Popup from '../components/Popup.js';
+import Section from '../components/Section.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import UserInfo from '../components/UserInfo.js';
 
 
 //Валидация
@@ -18,23 +18,28 @@ const popupValidationAddCard =  new FormValidator (config, popupFormAddCard);
 popupValidationAddCard.enableValidation();
 
 //Функция открытия полноэкранной картинки
+const popupOpenImage = new PopupWithImage ('.popup_full-size');
+popupOpenImage.setEventListeners();
 function handleCardClick (name, link) {
-    const popupOpenImage = new PopupWithImage ('.popup_full-size');
     popupOpenImage.open(name, link);
-    
-    popupOpenImage.setEventListeners();
 }
 
 //Добавление карточек из массива
+const createCard = (item) => {
+    const card = new Card ({
+        data: item,
+        handleCardClick
+    }, '#elements__card');
+    const cardElement = card.generateCard();
+
+    return cardElement;
+};
+
 const cardList = new Section ({
     items: initialCards,
     renderer: (item) => {
-        const card = new Card ({
-            data: item,
-            handleCardClick
-        }, '#elements__card');
-
-        const cardElement = card.generateCard();
+        const cardElement = createCard(item);
+        
         cardList.addItem(cardElement);
     }},
     '.elements'
@@ -45,9 +50,8 @@ cardList.renderItem();
 //Добавление карточки из попапа
 const handleAddFormSubmit = (data) => {
     data.name = data.place;
-    const card = new Card ({data, handleCardClick}, '#elements__card');
-    const cardElement = card.generateCard();
-    document.querySelector('.elements').prepend(cardElement);
+    const cardElement = createCard(data);
+    cardList.addItem(cardElement);
     
     popupAddCardForm.close();
 }

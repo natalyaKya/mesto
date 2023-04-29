@@ -44,6 +44,7 @@ export const initialCards = [
 export const popupFormEditProfile = document.querySelector('.popup__form-edit-profile');
 export const popupFormAddCard = document.querySelector('.popup__form-add-card');
 
+
 //Cards section
 // const cardTemplate = document.querySelector('#elements__card').content.querySelector('.elements__card');
 // export const cardsConteiner = document.querySelector('.elements');
