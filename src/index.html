@@ -16,7 +16,7 @@
     <main class="content">
 
         <section class="profile">
-            <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
+            <div class="profile__avatar-conteiner"><img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар"></div>
             <div class="profile__info">
                 <h1 class="profile__heading">Жак-Ив Кусто</h1>
                 <button class="profile__edit-button" type="button"></button>
@@ -63,6 +63,28 @@
         </div>      
     </div>
 
+    <div class="popup popup__confirm">
+        <div class="popup__container">
+            <button class="popup__close-button" type="button"></button>
+            <form class="popup__form popup__form-confirm" name="popup" novalidate>
+                <h2 class="popup__heading">Вы уверены?</h2>
+                <button class="popup__button popup__button-confirm" type="submit">Да</button>
+            </form>
+        </div>      
+    </div>
+
+    <div class="popup popup__update-avatar">
+        <div class="popup__container">
+            <button class="popup__close-button" type="button"></button>
+            <form class="popup__form popup__update-avatar" name="popup" novalidate>
+                <h2 class="popup__heading">Обновить аватар</h2>
+                <input id="link-card" class="popup__text popup__text_type_link" type="url" name="avatar" required placeholder="Ссылка на картинку">
+                <span class="link-card-error popup__text-error"></span>
+                <button class="popup__button popup__button-update-avatar" type="submit">Сохранить</button>
+            </form>
+        </div>      
+    </div>
+
     <div class="popup popup_full-size">
         <div  class="popup__container">
             <button class="popup__close-button" type="button"></button>
@@ -80,7 +102,10 @@
             <img class="elements__image">
             <h2 class="elements__text"></h2>
             <button class="elements__delete"></button>
-            <button class="elements__button" type="button"></button>
+            <div class="elements__container">
+                <button class="elements__button" type="button"></button>
+                <span class="elements__likes">0</span>
+            </div>
         </div>
     </template>
 

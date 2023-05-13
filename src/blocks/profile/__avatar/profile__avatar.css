@@ -1,11 +1,21 @@
 .profile__avatar {
     max-width: 127px;
+    min-height: 127px;
     border-radius: 50%;
     margin-bottom: 22px;
+    object-fit: cover;
 }
 
 @media (min-width: 910px) {
     .profile__avatar {
         margin: 0 20px 47px 0;
+    }
+}
+
+@media (hover:hover) {
+    .profile__avatar:hover {
+        opacity: 0.8;
+        transition: 0.5s;
+        cursor: pointer;
     }
 }
