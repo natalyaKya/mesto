@@ -11,7 +11,7 @@ export default class Card {
         this.userId = userId;
         this.cardId = data._id;
         this.likes = data.likes;
-        this.item = data.item;
+        this.item = data;
     }
 
     _getTemplate() {
@@ -31,8 +31,13 @@ export default class Card {
         this._cardImage.src = this.link;
         this._cardImage.alt = this.name;
 
+
         this._submitButton = this._element.querySelector('.elements__button');
         this.sumLikes = this._element.querySelector('.elements__likes');
+        this.sumLikes.textContent = this.likes.length;
+        if (this.isLiked()) {
+            this._hadleLikeCard();
+        }
         this._element.querySelector('.elements__text').textContent = this.name;
         
 
@@ -44,12 +49,11 @@ export default class Card {
     _setEventListeners() {
         this._submitButton.addEventListener('click', () => {
             this._hadleLikeCard();
-            console.log(card);
             this.checkActiveLike();
         });
         
         this._element.querySelector('.elements__delete').addEventListener('click', () => {
-            this._handleOpenConfirm();
+            this._handleOpenConfirm(this);
         });
 
         this._cardImage.addEventListener('click', () => {
@@ -60,12 +64,12 @@ export default class Card {
     _hadleLikeCard() {
         this._submitButton.classList.toggle('elements__button_active');
     }
-    checkActiveLike(card) {
+    checkActiveLike() {
         if (this._submitButton.classList.contains('elements__button_active')) {
-            this.addLikesApi(card);
+            this.addLikesApi(this);
         }
         else {
-            this.deleteLikesApi();
+            this.deleteLikesApi(this);
         };
     }
     _handleOpenConfirm() {
@@ -76,10 +80,10 @@ export default class Card {
         this._element.remove();
     }
     changeLikes(data) {
-        this.sumLikes.textContent = data.likes.lenght;
+        this.sumLikes.textContent = data.likes.length;
         this.likes = data.likes;
     }
     isLiked() {
-        return this.likes.some((item) => item.id === this.userId);
+        return this.likes.some((item) => item._id === this.userId);
     }
 }
