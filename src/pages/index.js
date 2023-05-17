@@ -134,7 +134,7 @@ buttonEditProfile.addEventListener('click', () => {
 });
 
 // Событие по клику на аватар
-const popupChangeAvatar = new PopupWithForm('.popup__update-avatar', handleChangeAvatarSubmit);
+const popupChangeAvatar = new PopupWithForm('.popup_update-avatar', handleChangeAvatarSubmit);
 popupChangeAvatar.setEventListeners();
 
 buttonAvatar.addEventListener('click', () => {
@@ -183,7 +183,7 @@ api.getInitialCards()
         cardList.renderItem(cards);
     })
 //Удаление карточки
-const popupConfirm = new PopupForDeleteCard('.popup__confirm');
+const popupConfirm = new PopupForDeleteCard('.popup_confirm');
 popupConfirm.setEventListeners();
 
 function handleDeleteCard(item) {
