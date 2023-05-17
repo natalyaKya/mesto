@@ -63,6 +63,7 @@ buttonAddCard.addEventListener('click', () => {
 
 //Закрытие попапа редактирования по кнопке "Сохранить"
 const handleEditFormSubmit = (data) => {
+    popupEditForm.loadingButton(true)
     api.setUserInfoApi(data.name, data.job)
         .then((res) => {
             userInfo.setUserInfo(res);
@@ -73,7 +74,7 @@ const handleEditFormSubmit = (data) => {
             console.log('error');
         })
         .finally(() => {
-            popupEditForm.loadingButton()
+            popupEditForm.loadingButton(false)
         })
 }
 
@@ -143,15 +144,13 @@ buttonAvatar.addEventListener('click', () => {
     })
 
 function handleChangeAvatarSubmit(item) {
+    popupChangeAvatar.loadingButton()
     api.changeAvatar(item.avatar)
         .then((res) => {
             userInfo.setAvatar(res)
         })    
         .catch(() => {
             console.log('error');
-        })
-        .finally(() => {
-            popupChangeAvatar.loadingButton()
         })
     }
 
@@ -161,6 +160,7 @@ popupAddCardForm.setEventListeners();
 
 //Добавление карточки из попапа
 function handleAddFormSubmit(data) {
+    popupAddCardForm.loadingButton()
     api.getNewCard(data.place, data.link)
         .then((res) => {
             const cardElement = createCard(res);
@@ -170,9 +170,6 @@ function handleAddFormSubmit(data) {
         })
         .catch(() => {
             console.log('Ошибка');
-        })
-        .finally(() => {
-            popupAddCardForm.loadingButton()
         })
 };
 
