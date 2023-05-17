@@ -1,12 +1,12 @@
 export default class Card {
-    constructor ({data, handleCardClick, addLikesApi, deleteLikesApi, openConfirm}, cardTemplate, userId) {
+    constructor({ data, handleCardClick, addLikesApi, deleteLikesApi, handleDeleteCard }, cardTemplate, userId) {
         this.name = data.name;
         this.link = data.link;
         this.cardTemplate = cardTemplate;
         this._handleCardClick = handleCardClick;
         this.addLikesApi = addLikesApi;
         this.deleteLikesApi = deleteLikesApi;
-        this.openConfirm = openConfirm;
+        this.handleDeleteCard = handleDeleteCard;
         this.ownerId = data.owner._id;
         this.userId = userId;
         this.cardId = data._id;
@@ -15,11 +15,11 @@ export default class Card {
     }
 
     _getTemplate() {
-        const cardElement  = document
-        .querySelector(this.cardTemplate)
-        .content
-        .querySelector('.elements__card')
-        .cloneNode(true);
+        const cardElement = document
+            .querySelector(this.cardTemplate)
+            .content
+            .querySelector('.elements__card')
+            .cloneNode(true);
 
         return cardElement;
     }
@@ -39,27 +39,28 @@ export default class Card {
             this._hadleLikeCard();
         }
         this._element.querySelector('.elements__text').textContent = this.name;
-        
-
+        if (this.isOwner()) {
+            this._element.querySelector('.elements__delete').classList.add('elements_delete-active');
+        }
         this._setEventListeners();
 
         return this._element;
     }
-    
+
     _setEventListeners() {
         this._submitButton.addEventListener('click', () => {
             this._hadleLikeCard();
             this.checkActiveLike();
         });
-        
+
         this._element.querySelector('.elements__delete').addEventListener('click', () => {
-            this._handleOpenConfirm(this);
+            this.handleDeleteCard(this);
         });
 
         this._cardImage.addEventListener('click', () => {
             this._handleCardClick(this.name, this.link);
-          });
-      }
+        });
+    }
 
     _hadleLikeCard() {
         this._submitButton.classList.toggle('elements__button_active');
@@ -72,11 +73,7 @@ export default class Card {
             this.deleteLikesApi(this);
         };
     }
-    _handleOpenConfirm() {
-        this.openConfirm();
-    }
-
-    _handleDeleteCard() {
+    deleteCard() {
         this._element.remove();
     }
     changeLikes(data) {
@@ -85,5 +82,8 @@ export default class Card {
     }
     isLiked() {
         return this.likes.some((item) => item._id === this.userId);
+    }
+    isOwner() {
+        return this.ownerId === this.userId;
     }
 }

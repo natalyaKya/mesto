@@ -6,7 +6,6 @@ export default class UserInfo {
     }
 
     getUserInfo () {
-        console.log(this);
         return {
             userName: this.name.textContent,
             userJob: this.job.textContent
