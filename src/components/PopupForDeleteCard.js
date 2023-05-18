@@ -14,7 +14,6 @@ export default class PopupForDeleteCard extends Popup {
             super.setEventListeners();
             evt.preventDefault();
             this.handleDeleteCard();
-            this.close();
         });   
     }
 }

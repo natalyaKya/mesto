@@ -4,7 +4,7 @@ export default class Api {
         this.baseUrl = this.options.baseUrl;
         this.headers = this.options.headers;
     }
-    checkStatus(res) {
+    _checkStatus(res) {
         if (res.ok) {
             return res.json();
         }
@@ -15,14 +15,14 @@ export default class Api {
             method: 'GET',
             headers: this.headers
         })
-        .then(res => this.checkStatus(res))
+        .then(res => this._checkStatus(res))
     }
 
     getInitialCards() {
         return fetch(`${this.baseUrl}/cards`, {
             headers: this.headers
         })
-        .then(res => this.checkStatus(res))
+        .then(res => this._checkStatus(res))
     }
     setUserInfoApi(name, about) {
         return fetch(`${this.baseUrl}/users/me`, {
@@ -31,7 +31,7 @@ export default class Api {
             body: JSON.stringify({ name, about })
         })
             .then(
-                this.checkStatus
+                this._checkStatus
             )
     }
     getNewCard(name, link) {
@@ -40,28 +40,28 @@ export default class Api {
             headers: this.headers,
             body: JSON.stringify({ name, link })
         })
-        .then(res => this.checkStatus(res))
+        .then(res => this._checkStatus(res))
     }
     addLike(id) {
         return fetch(`${this.baseUrl}/cards/${id}/likes`, {
             method: 'PUT',
             headers: this.headers
         })
-        .then(res => this.checkStatus(res))
+        .then(res => this._checkStatus(res))
     }
     removeLike(id) {
         return fetch(`${this.baseUrl}/cards/${id}/likes`, {
             method: 'DELETE',
             headers: this.headers
         })
-        .then(res => this.checkStatus(res))
+        .then(res => this._checkStatus(res))
     }
     deleteCard(id) {
         return fetch(`${this.baseUrl}/cards/${id}`, {
             method: 'DELETE',
             headers: this.headers
         })
-        .then(res => this.checkStatus(res))
+        .then(res => this._checkStatus(res))
     }
     changeAvatar(avatar) {
         return fetch(`${this.baseUrl}/users/me/avatar`, {
@@ -69,6 +69,6 @@ export default class Api {
             headers: this.headers,
             body: JSON.stringify({ avatar })
         })
-        .then(res => this.checkStatus(res))
+        .then(res => this._checkStatus(res))
     }
 }
